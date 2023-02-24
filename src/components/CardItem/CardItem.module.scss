@@ -1,0 +1,93 @@
+.wrapper {
+    width: 22%;
+    height: 425px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 1.5% 40px 1.5%;
+
+    &:hover {
+        border: 1px solid rgba(254, 44, 85, 1);
+    }
+}
+
+.img {
+    max-width: 100%;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.name {
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.category {
+    font-weight: 300;
+}
+
+.price {
+}
+
+.wrapper-price {
+    width: 76px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2px;
+
+    .price {
+        text-decoration-line: line-through;
+    }
+
+    .sale {
+        color: rgba(254, 44, 85, 1);
+        font-weight: 600;
+    }
+}
+
+.btn-click {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-bottom: 40px;
+    margin-top: 8px;
+
+    &:hover {
+        border: 1px solid #333;
+    }
+}
+
+.btn {
+    width: 16px;
+    height: 16px;
+    background-color: black;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.black {
+    width: 16px;
+    height: 16px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 760px) {
+    .wrapper {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .wrapper {
+        width: 100%;
+    }
+}

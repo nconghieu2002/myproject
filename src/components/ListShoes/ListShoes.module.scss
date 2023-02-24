@@ -1,0 +1,54 @@
+.wrapper {
+    padding: 4px 8px;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.link-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.wrapper + .wrapper {
+    border-top: 1px solid rgba(22, 24, 35, 0.1);
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 12px 0 4px;
+}
+
+.container-content {
+    margin-left: 16px;
+}
+
+.content-title {
+    font-weight: 500;
+}
+
+.content-text {
+    font-weight: 300;
+    font-size: 15px;
+    margin: 2px 0;
+}
+
+.wrapper-price {
+    width: 76px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2px;
+
+    .content-price {
+        text-decoration-line: line-through;
+    }
+
+    .content-sale {
+        color: rgba(254, 44, 85, 1);
+        font-weight: 600;
+    }
+}

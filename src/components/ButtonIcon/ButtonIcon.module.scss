@@ -1,0 +1,121 @@
+.actions {
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    margin-top: -30px;
+}
+
+.user-icon {
+    position: absolute;
+    left: 0;
+}
+
+.wish-icon {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bag-icon {
+    position: absolute;
+    right: 0;
+}
+
+.active-user,
+.active-wish,
+.active-bag {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.active-user .user-btn,
+.active-wish .wish-btn,
+.active-bag .bag-btn {
+    transform: translateY(-8px);
+    font-size: 26px;
+    color: rgba(254, 44, 85, 1);
+}
+
+.active-user .text,
+.active-wish .text,
+.active-bag .text {
+    opacity: 1;
+    color: rgba(254, 44, 85, 1);
+    transform: translateY(-8px);
+}
+
+.user-btn,
+.wish-btn,
+.bag-btn {
+    background-color: transparent;
+    font-size: 20px;
+    margin-top: 16px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.text {
+    font-size: 12px;
+    font-weight: 500;
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.count {
+    font-size: 12px;
+    line-height: 16px;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(254, 44, 85, 1);
+    position: absolute;
+    border-radius: 50%;
+    top: 32px;
+    right: -8px;
+}
+
+.active-bag .count {
+    opacity: 0;
+}
+
+.count-wish {
+    font-size: 12px;
+    line-height: 16px;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(254, 44, 85, 1);
+    position: absolute;
+    border-radius: 50%;
+    top: 32px;
+    right: 10px;
+}
+
+.active-wish .count-wish {
+    opacity: 0;
+}
+
+// @media screen and (max-width: 1000px) {
+//     .actions {
+//         width: 15%;
+//         display: flex;
+//         justify-content: space-between;
+//         position: relative;
+//     }
+// }
+
+// @media screen and (max-width: 760px) {
+//     .actions {
+//         display: none;
+//     }
+// }
+

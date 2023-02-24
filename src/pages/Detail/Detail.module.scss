@@ -1,0 +1,109 @@
+.wrapper {
+    display: flex;
+    margin: 60px;
+}
+
+.images {
+    width: 76%;
+}
+
+.img-item {
+    max-width: 46%;
+    padding: 0 8px 16px 8px;
+}
+
+.container {
+    width: 24%;
+    margin-left: -20px;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.category {
+}
+
+.wrapper-price {
+    margin-top: 8px;
+    width: 76px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2px;
+
+    .price {
+        text-decoration-line: line-through;
+    }
+
+    .sale {
+        color: rgba(254, 44, 85, 1);
+        font-weight: 600;
+    }
+}
+
+.size-title {
+    margin-top: 40px;
+    margin-bottom: 4px;
+    font-size: 18px;
+}
+
+.list-size {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.size-card {
+    text-align: center;
+    line-height: 50px;
+    width: 100px;
+    height: 50px;
+    border: 2px solid rgba(22, 24, 35, 0.34);
+    margin: 2px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+        border: 2px solid rgba(22, 24, 35, 1);
+    }
+}
+
+.add-btn-bag {
+    font-weight: 600;
+    margin-top: 14px;
+    width: 308px;
+    height: 60px;
+    border-radius: 999px;
+    color: rgba(254, 44, 85, 1);
+    border: 1px solid rgba(254, 44, 85, 1);
+    background-color: rgba(22, 24, 35, 0.06);
+    cursor: pointer;
+
+    &:hover {
+        color: rgba(22, 24, 35, 0.8);
+    }
+}
+
+.add-btn-wish {
+    font-weight: 600;
+    margin-top: 14px;
+    width: 308px;
+    height: 60px;
+    border-radius: 999px;
+    color: #fff;
+    background-color: rgba(254, 44, 85, 1);
+    cursor: pointer;
+
+    &:hover {
+        color: rgba(22, 24, 35, 0.8);
+    }
+}
+
+.description {
+    margin-top: 60px;
+    font-size: 18px;
+}
+
+.description-content {
+    margin-top: 12px;
+}
