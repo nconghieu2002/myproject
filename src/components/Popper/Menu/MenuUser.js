@@ -1,44 +1,56 @@
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
 
 import styles from './Menu.module.scss';
 import { Wrapper as PopperWrapper } from 'components/Popper';
 import logo from 'assets/images/logo.png';
 import config from 'config';
 import { useEffect, useState } from 'react';
+import { Context } from 'Context';
 
 const cx = classNames.bind(styles);
 
 function MenuUser({ children }) {
+    const {
+        userNameInput,
+        setUserNameInput,
+        passwordInput,
+        setPasswordInput,
+        admin,
+        handleAccountAdmin,
+    } = useContext(Context);
+
     const [currentUser, setCurrentUser] = useState(false);
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
-    const [userNameInput, setUserNameInput] = useState('');
-    const [passwordInput, setPasswordInput] = useState('');
-    const [admin, setAdmin] = useState('');
+    // const [userNameInput, setUserNameInput] = useState('');
+    // const [passwordInput, setPasswordInput] = useState('');
+    // const [admin, setAdmin] = useState('');
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (admin) {
-            window.location.href = admin;
+            navigate(admin);
         }
     }, [admin]);
 
-    const userAdmin = 'admin';
-    const passwordAdmin = 'admin';
+    // const userAdmin = 'admin';
+    // const passwordAdmin = 'admin';
 
-    const handleAccountAmin = () => {
-        if (userNameInput.trim() === userAdmin && passwordInput.trim() === passwordAdmin) {
-            console.log('sad');
-            setUserNameInput('');
-            setPasswordInput('');
-            setAdmin('/admin');
-        } else {
-            alert('Thông tin tài khoản hoặc mật khẩu không chính xác');
-            setUserNameInput('');
-            setPasswordInput('');
-        }
-    };
+    // const handleAccountAmin = () => {
+    //     if (userNameInput.trim() === userAdmin && passwordInput.trim() === passwordAdmin) {
+    //         setUserNameInput('');
+    //         setPasswordInput('');
+    //         setAdmin('/admin');
+    //     } else {
+    //         alert('Thông tin tài khoản hoặc mật khẩu không chính xác');
+    //         setUserNameInput('');
+    //         setPasswordInput('');
+    //     }
+    // };
 
     const handleAccount = () => {
         if (userName.trim() != '' && password.trim() != '') {
@@ -130,7 +142,7 @@ function MenuUser({ children }) {
                                         />
                                     </div>
                                     <Link to={admin}>
-                                        <button onClick={handleAccountAmin} className={cx('signin')}>
+                                        <button onClick={handleAccountAdmin} className={cx('signin')}>
                                             Đăng nhập
                                         </button>
                                     </Link>

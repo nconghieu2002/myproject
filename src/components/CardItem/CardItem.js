@@ -31,9 +31,9 @@ function CardItem({ to, img, name, price, sale, noSale, category }) {
                                 <div className={cx('sale')}>${sale}</div>
                             </div>
                         )))}
-                <div className={cx('btn-click')}>
-                    <button className={cx('btn')}></button>
-                </div>
+                <Link onClick={scrollToTop} to={to}>
+                    <button className={cx('btn')}>Xem</button>
+                </Link>
             </div>
         </div>
     );

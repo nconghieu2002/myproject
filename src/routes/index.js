@@ -13,10 +13,9 @@ const publicRoutes = [
     { path: config.routes.men, component: MenShoes },
     { path: config.routes.women, component: WomenShoes },
     { path: config.routes.detail, component: Detail },
-    { path: config.routes.admin, component: Admin },
     { path: config.routes.shoppingcart, component: ShoppingCart },
 ];
 
-const privateRoutes = [];
+const privateRoutes = [{ path: config.routes.admin, component: Admin }];
 
 export { publicRoutes, privateRoutes };

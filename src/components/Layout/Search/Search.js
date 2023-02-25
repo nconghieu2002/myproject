@@ -1,12 +1,13 @@
-import { useState, useEffect, useRef, useContext } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 
 import styles from './Search.module.scss';
-import { Wrapper as PopperWrapper } from '../../Popper';
+import { Wrapper as PopperWrapper } from 'components/Popper';
 import ListShoes from 'components/ListShoes';
+import { useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -14,6 +15,8 @@ function Search() {
     const [searchResult, setSearchResult] = useState([]);
     const [searchValue, setSearchValue] = useState('');
     const [showResult, setShowResult] = useState(false);
+
+    const navigate = useNavigate();
 
     const inputRef = useRef();
 
@@ -29,8 +32,6 @@ function Search() {
         setShowResult(false);
     };
 
-    const searchFilter = searchResult.filter((value) => value.name.toLowerCase().includes(searchValue.toLowerCase()));
-
     const handleChange = (e) => {
         const searchValue = e.target.value;
 
@@ -38,6 +39,15 @@ function Search() {
             setSearchValue(searchValue);
         }
     };
+
+    const handleProductClick = (id) => {
+        setShowResult(false);
+        console.log(id);
+        // window.location.href = `/detail?id=${id}`;
+        navigate(`/detail?id=${id}`);
+    };
+
+    const searchFilter = searchResult.filter((value) => value.name.toLowerCase().includes(searchValue.toLowerCase()));
 
     return (
         <Tippy
@@ -47,7 +57,7 @@ function Search() {
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                     <PopperWrapper>
                         {searchFilter.map((result) => (
-                            <ListShoes key={result.id} to={'/detail?id=' + result.id} data={result} />
+                            <ListShoes key={result.id} data={result} onClick={() => handleProductClick(result.id)} />
                         ))}
                     </PopperWrapper>
                 </div>

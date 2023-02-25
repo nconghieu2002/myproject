@@ -5,10 +5,12 @@ import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function ListShoes({ data, to }) {
+function ListShoes({ data, onClick }) {
     return (
-        <div className={cx('wrapper')}>
-            <Link to={to} className={cx('link-wrapper')}>
+        <div onClick={onClick} className={cx('wrapper')}>
+            <Link 
+            // to={`/detail?id=${data.id}`}
+             className={cx('link-wrapper')}>
                 <img className={cx('avatar')} src={data.banner} alt="" />
                 <div className={cx('container-content')}>
                     <div className={cx('content-title')}>{data.name}</div>

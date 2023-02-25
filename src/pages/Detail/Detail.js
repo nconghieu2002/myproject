@@ -1,7 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './Detail.module.scss';
 import { useContext, useEffect, useState } from 'react';
-
 import { Context } from 'Context';
 
 const cx = classNames.bind(styles);
