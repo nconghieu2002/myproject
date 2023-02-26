@@ -4,11 +4,10 @@ import { useContext } from 'react';
 import { publicRoutes, privateRoutes } from './routes';
 import DefaultLayout from './components/Layout/DefaultLayout';
 import { Context } from 'Context';
-import Admin from 'pages/Admin';
-import Home from 'pages/Home';
 
 function App() {
     const { authenticated } = useContext(Context);
+
     return (
         <Router>
             <div className="App">
@@ -22,14 +21,28 @@ function App() {
                                 element={
                                     <DefaultLayout>
                                         <Page />
-                                    </DefaultLayout> 
+                                    </DefaultLayout>
                                 }
                             />
                         );
                     })}
                     {privateRoutes.map((route, index) => {
                         const Page = route.component;
-                        return <Route key={index} path={route.path} element={<Admin />} />;
+                        return (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                element={
+                                    authenticated === true ? (
+                                        <DefaultLayout>
+                                            <Page />
+                                        </DefaultLayout>
+                                    ) : (
+                                        <Navigate to="/" replace />
+                                    )
+                                }
+                            />
+                        );
                     })}
                 </Routes>
             </div>

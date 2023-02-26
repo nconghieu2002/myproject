@@ -13,45 +13,20 @@ import { Context } from 'Context';
 const cx = classNames.bind(styles);
 
 function MenuUser({ children }) {
-    const {
-        authenticated,
-        userNameInput,
-        setUserNameInput,
-        passwordInput,
-        setPasswordInput,
-        admin,
-        handleAccountAdmin,
-    } = useContext(Context);
-    console.log(authenticated);
+    const { userNameInput, setUserNameInput, passwordInput, setPasswordInput, admin, handleAccountAdmin } =
+        useContext(Context);
+
     const [currentUser, setCurrentUser] = useState(false);
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
-    // const [userNameInput, setUserNameInput] = useState('');
-    // const [passwordInput, setPasswordInput] = useState('');
-    // const [admin, setAdmin] = useState('');
 
     const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     if (admin) {
-    //         navigate(admin);//nó chuyển đến trang này @@
-    //     }
-    // }, [admin]);
-
-    // const userAdmin = 'admin';
-    // const passwordAdmin = 'admin';
-
-    // const handleAccountAmin = () => {
-    //     if (userNameInput.trim() === userAdmin && passwordInput.trim() === passwordAdmin) {
-    //         setUserNameInput('');
-    //         setPasswordInput('');
-    //         setAdmin('/admin');
-    //     } else {
-    //         alert('Thông tin tài khoản hoặc mật khẩu không chính xác');
-    //         setUserNameInput('');
-    //         setPasswordInput('');
-    //     }
-    // };
+    useEffect(() => {
+        if (admin) {
+            navigate(admin);
+        }
+    }, [admin]);
 
     const handleAccount = () => {
         if (userName.trim() != '' && password.trim() != '') {
@@ -59,7 +34,7 @@ function MenuUser({ children }) {
         } else {
             alert('Nhaplai');
         }
-        // cai authenti kh lay dc ra day  lay ra di
+
         localStorage.setItem('userName', userName);
         localStorage.setItem('password', password);
         setUserName('');
@@ -142,7 +117,7 @@ function MenuUser({ children }) {
                                             placeholder="Mật khẩu"
                                         />
                                     </div>
-                                    <Link to={authenticated ? './admin' : '/'}>
+                                    <Link to={admin}>
                                         <button onClick={handleAccountAdmin} className={cx('signin')}>
                                             Đăng nhập
                                         </button>

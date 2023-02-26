@@ -44,7 +44,7 @@ function Search() {
         setShowResult(false);
         console.log(id);
         // window.location.href = `/detail?id=${id}`;
-        navigate(`/detail?id=${id}`);
+        // navigate(`/detail?id=${id}`);
     };
 
     const searchFilter = searchResult.filter((value) => value.name.toLowerCase().includes(searchValue.toLowerCase()));
