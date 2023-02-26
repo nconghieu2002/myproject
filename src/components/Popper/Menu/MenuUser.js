@@ -14,6 +14,7 @@ const cx = classNames.bind(styles);
 
 function MenuUser({ children }) {
     const {
+        authenticated,
         userNameInput,
         setUserNameInput,
         passwordInput,
@@ -21,7 +22,7 @@ function MenuUser({ children }) {
         admin,
         handleAccountAdmin,
     } = useContext(Context);
-
+    console.log(authenticated);
     const [currentUser, setCurrentUser] = useState(false);
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
@@ -31,11 +32,11 @@ function MenuUser({ children }) {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (admin) {
-            navigate(admin);
-        }
-    }, [admin]);
+    // useEffect(() => {
+    //     if (admin) {
+    //         navigate(admin);//nó chuyển đến trang này @@
+    //     }
+    // }, [admin]);
 
     // const userAdmin = 'admin';
     // const passwordAdmin = 'admin';
@@ -58,7 +59,7 @@ function MenuUser({ children }) {
         } else {
             alert('Nhaplai');
         }
-
+        // cai authenti kh lay dc ra day  lay ra di
         localStorage.setItem('userName', userName);
         localStorage.setItem('password', password);
         setUserName('');
@@ -141,7 +142,7 @@ function MenuUser({ children }) {
                                             placeholder="Mật khẩu"
                                         />
                                     </div>
-                                    <Link to={admin}>
+                                    <Link to={authenticated ? './admin' : '/'}>
                                         <button onClick={handleAccountAdmin} className={cx('signin')}>
                                             Đăng nhập
                                         </button>

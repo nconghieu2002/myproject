@@ -1,8 +1,10 @@
 import { createContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const Context = createContext();
 
 export const ContextProvider = ({ children }) => {
+    // const navigate = useNavigate();
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const id = urlParams.get('id');
@@ -23,29 +25,29 @@ export const ContextProvider = ({ children }) => {
                 setListData(res);
             });
     }, []);
-
     // Xác nhận tài khoản admin
     const userAdmin = 'admin';
     const passwordAdmin = 'admin';
     const handleAccountAdmin = () => {
         if (userNameInput.trim() === userAdmin && passwordInput.trim() === passwordAdmin) {
-            setUserNameInput('');
-            setPasswordInput('');
             setAuthenticated(true);
-            console.log(authenticated);
+            if (authenticated) {
+                setUserNameInput('');
+                setPasswordInput('');
+            }
+            // setAdmin('/admin');
         } else {
             alert('Thông tin tài khoản hoặc mật khẩu không chính xác');
             setUserNameInput('');
-            setPasswordInput('');
+            setPasswordInput(''); // bat giup component login
         }
     };
 
-    useEffect(() => {
-        if (authenticated) {
-            setAdmin('/admin');
-            console.log(authenticated)
-        }
-    }, [authenticated]);
+    // useEffect(() => {
+    //     if (authenticated) {
+    //         console.log(authenticated)
+    //     }
+    // }, [authenticated]);
 
     // Xóa sản phẩm khỏi giỏ hàng
     const removeItem = (id) => {
